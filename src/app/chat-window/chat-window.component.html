@@ -1,0 +1,19 @@
+<div class="chat-window" *ngIf = "selectedUser != null">
+        <div class="chat-header">
+                <i class="fa fa-angle-left" id="back-btn" (click)="backToList()"></i>
+                {{sharedChats[selectedUser].name}}
+        </div>
+        <div class="chat-messages" #messageContainer>
+                <ng-container *ngFor="let msg of sharedChats[selectedUser].messages; let i = index">
+                        <div class="msg-d" *ngIf="i === 0 || (msg.time | date:'yyyy-MM-dd') !== (sharedChats[selectedUser].messages[i - 1]?.time | date:'yyyy-MM-dd')">{{msg.time | date:'yyyy-MM-dd'}}</div>
+                        <div class="msg-r" [ngClass] = "{'msg-s': msg.sender === selfUserID, 'msg-r': msg.sender !== selfUserID }" >
+                                <div [innerHTML] = "msg.msg_text"></div>
+                                <span class="msg-t">{{msg.time | date:'shortTime'}}</span>
+                        </div>
+                </ng-container>
+        </div>
+        <div class="chat-footer">
+                <textarea  type="text" [(ngModel)]="inputMsg" (keydown)="handleKeydown($event)" placeholder="Type a message..." id="input-msg" ></textarea>
+                <button id="btn-send" (click) = "sendMsg()" [disabled] = "inputMsg === ''" autocomplete="off"><i class="fa fa-paper-plane"></i></button>
+        </div>
+</div>

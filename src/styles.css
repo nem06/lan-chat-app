@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+        margin: 0;
+        font-family:Arial, Helvetica, sans-serif;
+        overflow-x: hidden;
+}
+::-webkit-scrollbar {
+        width: 6px;
+}
+/* Track 
+::-webkit-scrollbar-track {
+background: #f1f1f1; 
+}*/
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+        background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+}
+:root {
+        --margin-size: calc(2vmin); 
+        --main-window-margin: 15px;
+}
+.main-body{
+        width: calc(100vw - 2 * var(--margin-size)); 
+        height: calc(100dvh - 2 * var(--margin-size)); 
+        margin: var(--margin-size);
+        border-radius: 1.5vh;
+        /* box-shadow: 0 0 10px #1f1f1f; */
+}
+
+input:focus, textarea:focus {
+        outline: none; /* Ensures focus outline is still removed */
+        box-shadow: none; /* Ensures no shadow on focus */
+}

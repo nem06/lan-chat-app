@@ -1,0 +1,39 @@
+<!-- <button type="button" (click)="Logout()">Logout</button>
+<div id="msg-content" [innerHtml]="messages"></div>
+<textarea type="text" [(ngModel)]="textMsg" ></textarea>
+<div *ngFor="let item of liveUsers">
+        <label>
+                <input type="radio" name="options" [value]="item" [(ngModel)]="selectedUser" (change)="onSelectionChange(item)" />
+                {{ item }}
+        </label>
+</div>
+<button type="button" (click)="sendMsg()">Send</button> -->
+
+
+<div class="container">
+        <!-- First Component -->
+        <app-chat-list
+                [chatList]="chatList"
+                [allUsers]="allUsers"
+                [liveUsers]="liveUsers"
+                [selectedUser]="currentUser"
+                (chatSelected)="onChatSelected($event)"
+                (refreshUsers)="fetchAllUsers()"
+                *ngIf="!isMobile || visibleComponent === 1"
+                class="component component1"
+        ></app-chat-list>
+      
+        <!-- Second Component -->
+        <app-chat-window
+                [selectedUser]="currentUser"
+                [scrollChat]="scrollChat"
+                [sharedChats]="allChats"
+                (sharedChatsChange)="onSentMessage($event)"
+                (back)="back()"
+                *ngIf="!isMobile || visibleComponent === 2"
+                class="component component2"
+        ></app-chat-window>
+</div>
+      
+
+<!-- (click) = "toggleComponent(1)" -->

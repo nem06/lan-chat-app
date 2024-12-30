@@ -1,0 +1,48 @@
+<div class="main-window">
+        <div class="chat-list-header">
+                <div class="name-container">
+                        <span id="welcome-msg">Welcome {{firstName}}!</span>
+                        <span id="btn-logout" (click)="Logout()"><i class="fa fa-power-off"></i></span>
+                </div>
+                <div class="search-container">
+                        <div class="input-container">
+                                <input type="text" placeholder="search" id="search-bar" [(ngModel)]="searchKeyword" (input)="searchList()" autocomplete="off" />
+                                <span id="clear-btn" *ngIf="searhMode === true" (click)="seachCancel()"><i class="fa fa-times"></i></span>
+                        </div>
+                        <span id="btn-new-chat"><i class = "fa" [ngClass]="{'fa-plus' : showAllUsers === false, 'fa-times': showAllUsers === true}" (click) = "OnNewChat()"></i></span>
+                </div>
+        </div>
+        <div class="chat-list-container" [ngClass]="{'search-mode' : searhMode === true}" *ngIf="showAllUsers === false">
+                <div *ngFor="let chat of chatList">
+                        <div class="chat-item" [ngClass]="{'chat-item-active' : chat.user_id === selectedUser && deviceMode === 'window'}" (click)="OpenChat(chat.user_id)" *ngIf="searchKeyword === '' || chat.name.toLocaleLowerCase().includes(searchKeyword.toLowerCase()) ">
+                                <div class="chat-item-head" [ngClass]="{'chat-item-head-unread': chat.unread_count > 0}" >
+                                        <div class="rec-name">{{chat.name}}</div>
+                                        <span class="online-ind" *ngIf="liveUsers.includes(chat.user_id)"><i class="fa fa-circle"></i></span>  
+                                        <div class="last-msg-time" *ngIf="isToday(chat.last_msg_time); else showDate">{{chat.last_msg_time | date:'shortTime' }}</div>
+                                        <ng-template #showDate> <diV class="last-msg-time">{{chat.last_msg_time | date:'yyyy-MM-dd' }} </diV></ng-template>                                        
+                                </div>
+                                <div class="chat-item-body">
+                                        <div class="last-msg" [ngClass]="{'last-msg-unread': chat.unread_count > 0}">{{chat.last_msg}}</div>
+                                        <div class="unread-count" *ngIf="chat.unread_count > 0">{{chat.unread_count}}</div>
+                                </div>                             
+                        </div>
+                </div>
+        </div>
+        <div class="other-title" *ngIf="searhMode === true && showAllUsers === false">
+                Other Users
+        </div>
+        <div class="all-users-container" [ngClass]="{'search-mode' : searhMode === true}" *ngIf="showAllUsers === true || searhMode === true" >
+                <div *ngFor="let user of allUsers">
+                        <div class="chat-item" (click)="OpenChat(user.user_id)" *ngIf="searchKeyword === '' || user.name.toLocaleLowerCase().includes(searchKeyword.toLowerCase())" >
+                                <div class="chat-item-head" >
+                                        <div class="rec-name">{{user.name}}</div>    
+                                        <span class="online-ind" *ngIf="liveUsers.includes(user.user_id)"><i class="fa fa-circle"></i></span>                              
+                                </div>
+                                <div class="chat-item-body">
+                                        <div class="last-msg" >{{user.about}}</div>
+
+                                </div>                             
+                        </div>
+                </div>
+        </div>
+</div>

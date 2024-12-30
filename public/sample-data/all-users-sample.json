@@ -1,0 +1,38 @@
+[
+        {
+                "user_id" : "1001",
+                "name" : "Nem",
+                "status" : "online",
+                "about" : "Allah is the greatest."
+        },
+        {
+                "user_id" : "1002",
+                "name" : "Nab",
+                "status" : "offline",
+                "about" : "Allah is the greatest."
+        },
+        {
+                "user_id" : "1003",
+                "name" : "Sum",
+                "status" : "offline",
+                "about" : "Allah is the greatest."
+        },
+        {
+                "user_id" : "1004",
+                "name" : "Mom",
+                "status" : "online",
+                "about" : "Allah is the greatest."
+        },
+        {
+                "user_id" : "1005",
+                "name" : "Dad",
+                "status" : "offline",
+                "about" : "Allah is the greatest."
+        },
+        {
+                "user_id" : "1006",
+                "name" : "Ingram Logan",
+                "status" : "online",
+                "about" : "Allah is the greatest."
+        }
+]

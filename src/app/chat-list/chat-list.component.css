@@ -1,0 +1,173 @@
+.main-window{
+        height: 100%; /* calc(100% - 2 * var(--main-window-margin)); */
+        display: flex;
+        flex-direction: column; 
+        user-select: none; /* Standard property */
+    -webkit-user-select: none; /* For WebKit (Chrome, Safari) */
+    -moz-user-select: none; /* For Firefox */
+}
+.chat-list-header{
+        /* background-image: linear-gradient(to right, rgba(170,170,170,1), rgba(230,230,230,0.9)); */
+        background: linear-gradient(-135deg, #9ac9d6, #364384);
+        color: white;
+        border-top-left-radius: 1.5vh;
+        border-top-right-radius: 1.5vh;
+        border-radius: 1.5vh;
+        box-shadow: 0px 3px 4px rgba(0,0,0,0.6);
+}
+.name-container, .search-container{
+        display: flex;
+        padding: 0 15px 0;
+        margin: 15px 0px;
+        align-items: center;
+        justify-content: space-between; 
+}
+#welcome-msg{
+        font-size: 22px;
+        font-weight: bold;
+}
+#btn-logout{
+        margin-left: auto;
+        cursor: pointer;
+        color: red;
+        font-size: 19px;
+}
+#search-bar{
+        width: 100%;
+        /* height: 20px; */
+        border-radius: 15px;
+        border: 2px black solid;
+        padding: 3px 30px 3px 12px;
+        font-size: 16px;
+        box-sizing: border-box;
+}
+.input-container{
+        width: 100%;
+        position: relative;
+}
+#clear-btn {
+        position: absolute;
+        right: 13px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #888; /* Light color for the clear icon */
+}
+#btn-new-chat{
+        margin-left: 13px; 
+        cursor: pointer;
+        color: blue;
+        font-size: 20px;
+}
+.chat-list-container{
+        margin-top: 10px;
+        /* padding: 0px 3px; */
+        flex-grow: 1;
+        overflow-y: auto;
+        scroll-behavior: smooth;
+}
+/* .chat-list-container:not(hover)::-webkit-scrollbar{
+      width: 0;
+} */
+.other-title{
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 24px;
+        color: #364384;
+        /* background-color: #9ac9d6; */
+        text-align: center;
+}
+.all-users-container{
+        flex: 1;
+        margin-top: 10px;
+        /* padding: 0px 3px; */
+        flex-grow: 1;
+        overflow-y: auto;
+        scroll-behavior: smooth;
+}
+.search-mode{
+        /* max-height: 50%; */
+        flex: 0 1 auto;
+}
+.chat-item{
+        position: relative;
+        /* width: calc(100% - 6px); */
+        border-bottom: 1px gray solid;
+        padding: 10px 6px 6px;
+}
+.chat-item:hover{
+        background-color: rgb(168, 209, 241);
+        cursor: pointer;
+}
+.chat-item-active{
+        background-color: #bfcfeb;
+}
+.chat-item-head{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between; 
+}
+.rec-name{
+        font-size: 18px;
+        padding: 2px;
+        display: -webkit-box;      
+        -webkit-box-orient: block-axis; 
+        line-clamp: 1;
+        -webkit-line-clamp: 1; 
+        overflow: hidden;           
+        text-overflow: ellipsis; 
+}
+.last-msg-time{
+        /* margin-left: auto; */
+        font-size: 14px;
+        display: -webkit-box;      
+        -webkit-box-orient: block-axis; 
+        line-clamp: 1;
+        -webkit-line-clamp: 1; 
+        overflow: hidden;           
+        text-overflow: ellipsis;  
+}
+.chat-item-body{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between; 
+}
+.last-msg{
+        flex-grow: 1; /* Take available space */
+        flex-shrink: 1; /* Shrink when needed */
+        padding: 2px;
+        display: -webkit-box;       /* Required for line-clamp */
+        -webkit-box-orient: vertical; /* Specifies vertical text flow */
+        line-clamp: 2;
+        -webkit-line-clamp: 2;  
+        overflow: hidden;           
+        text-overflow: ellipsis; 
+        color: gray;
+}
+.unread-count{
+        flex-shrink: 0;
+        margin-left: 10px;
+        border-radius: 50%;   /* Make it circular */
+        width: 22px;          /* Adjust size */
+        height: 22px;
+        font-size: 14px;
+        background-color: blue; /* Optional: styling for visibility */
+        color: white;
+        display: flex; /* Center the content */
+        justify-content: center; /* Horizontal centering */
+        align-items: center; /* Vertical centering */
+}
+.chat-item-head-unread{
+        font-weight: bold;
+}
+.last-msg-unread{
+        color: black;
+}
+.online-ind{
+        margin-left: auto;
+        color: rgb(39, 199, 39);
+        font-size: 10px;
+        margin-right: 10px;
+}
